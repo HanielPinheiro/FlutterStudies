@@ -27,19 +27,23 @@ class _LoginPageState extends State<LoginPage> {
             TextField(controller: _passwordController,decoration: const InputDecoration(prefixIcon: Icon(Icons.password),labelText: 'Password'),obscureText: true),
 
             OverflowBar(
-              alignment: MainAxisAlignment.end, // TODO: Add a beveled rectangular border to CANCEL (103)
+              alignment: MainAxisAlignment.end,
               children: <Widget>[
                 TextButton(
                       onPressed: () { _usernameController.clear(); _passwordController.clear(); },
-                      style: TextButton.styleFrom(foregroundColor: Theme.of(context).colorScheme.secondary),child: const Text('CANCEL'),
+                      style: TextButton.styleFrom(
+                          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                          foregroundColor: Theme.of(context).appBarTheme.foregroundColor),
+                          child: const Text('CANCEL'),
                 ),
                 ElevatedButton.icon(
-                      icon: Icon(Icons.login, color: Theme.of(context).colorScheme.secondary,),
+                      icon: Icon(Icons.login, color: Theme.of(context).appBarTheme.foregroundColor,),
                       label: const Text('LOGIN'), onPressed: () { Navigator.pop(context); },
-                      style: ElevatedButton.styleFrom( foregroundColor: Theme.of(context).colorScheme.secondary, backgroundColor: Theme.of(context).colorScheme.primary, elevation: 10.0,),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Theme.of(context).appBarTheme.foregroundColor,
+                        backgroundColor: Theme.of(context).appBarTheme.backgroundColor, elevation: 10.0,
+                      ),
                 ),
-                // TODO: Add an elevation to NEXT (103)
-                // TODO: Add a beveled rectangular border to NEXT (103)
               ],
             ),
 
